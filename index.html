@@ -487,6 +487,22 @@ nav a:hover{
             h1 { font-size: 2.5rem; }
             .gallery { flex-direction: column; align-items: center; }
         }
+        /* Mobile Responsive Navigation (Screens 768px wide and below) */
+@media screen and (max-width: 768px) {
+    nav {
+        flex-wrap: wrap;       /* Allows elements to drop to the next line safely */
+        gap: 10px;             /* Reduces whitespace gap between items */
+        padding: 15px 10px;    /* Shaves off outer spacing */
+        justify-content: center;
+    }
+
+    nav a {
+        padding: 8px 14px;     /* Reduces individual link sizes for tight viewports */
+        font-size: 14px;       /* Scales down text size slightly */
+        text-align: center;
+    }
+}
+
     </style>
 </head>
 <body>
