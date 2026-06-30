@@ -36,28 +36,46 @@
   scroll-behavior: smooth;
 }
 
-/* Navigation */
-nav{
-
-display:flex;
-justify-content:center;
-gap:30px;
-padding:20px;
-
+/* Navigation Container */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Slightly reduced gap to accommodate box widths nicely */
+    padding: 30px 20px;
+    flex-wrap: wrap; /* Prevents boxes from breaking layout on small mobile screens */
 }
 
-nav a{
-color: white;
-font-weight: bolder;
-padding:12px 20px;
-border-radius:30px;
-transition:.3s;
-
+/* Page Link Buttons */
+nav a {
+    color: var(--white);
+    font-weight: bolder;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    /* Box Shape and Spacing */
+    padding: 12px 24px;
+    border-radius: 8px; /* Creates clean, modern corners instead of fully round pills */
+    
+    /* Box Borders and Backgrounds */
+    background: rgba(255, 255, 255, 0.03); /* Subtle dark glass background fill */
+    border: 1px solid rgba(212, 175, 55, 0.3); /* Soft, low-intensity gold framing outline */
+    
+    /* Core Removal & Smooth Interactions */
+    text-decoration: none; /* FIXED: Completely removes the default browser underline text line */
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
-nav a:hover{
-    color:var(--gold);
+/* Box Hover State Interactions */
+nav a:hover {
+    color: var(--black); /* Flips text color dark to contrast against bright gold background */
+    background: var(--gold); /* Fully illuminates box color wrapper background to solid gold */
+    border-color: var(--gold);
+    transform: translateY(-2px); /* Subtle luxurious lift effect when cursor rolls over */
+    box-shadow: 0 5px 15px rgba(214, 175, 55, 0.3); /* Smooth glowing shadow anchor */
 }
+
 
            #backToTop{
         width:45px;
@@ -381,6 +399,173 @@ nav a:hover{
         left: 0;
         transform: translate(0, 0);
         margin: 40px auto;
+    }
+}
+/* Contact Section Core Layout Wrapper & Scroll Padding */
+.contact-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+    scroll-margin-top: 40px; /* Provides breathing room below your sticky navbar when jumping directly to contact */
+}
+
+/* Centralized Contact Box Card Grid */
+.contact-card {
+    background: rgba(15, 15, 15, 0.95);
+    backdrop-filter: blur(12px);
+    border: 2px solid var(--gold); /* Pairs cleanly with your existing root theme variables */
+    border-radius: 20px;
+    padding: 50px 40px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 15px rgba(212, 175, 55, 0.1);
+    width: 100%;
+    max-width: 550px;
+    text-align: center;
+}
+
+/* Header Text Alignments */
+.contact-header h2 {
+    font-size: 2.2rem;
+    font-family: var(--heading-font);
+    color: var(--gold);
+    margin: 0 0 5px 0;
+    border-bottom: none; /* Disables global divider conflicts */
+    padding-bottom: 0;
+}
+
+/* Accent Header Label Badge */
+.contact-badge {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--gold);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    font-family: var(--text-font);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 5px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.contact-intro {
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.contact-text {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 420px;
+    margin: 0 auto 25px auto;
+    line-height: 1.6;
+}
+
+/* Contact Rule Bullet Overrides */
+.contact-rules {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 35px auto;
+    text-align: left; /* Aligns rule text gracefully for quick scanning inside centered card context */
+    max-width: 420px;
+}
+
+.contact-rules li {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 8px 0 8px 25px;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contact-rules li:last-child {
+    border-bottom: none;
+}
+
+/* Elegant Red Custom Dash Bullet Points */
+.contact-rules li::before {
+    content: "–";
+    color: #e74c3c; /* Red color indicator for boundary limitations */
+    font-weight: bold;
+    font-size: 1.1rem;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+
+/* WhatsApp Interactive Action Panel */
+.whatsapp-container {
+    margin-bottom: 35px;
+}
+
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #25D366;
+    color: white !important;
+    text-decoration: none;
+    padding: 16px 35px;
+    border-radius: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.25);
+    transition: all .35s ease;
+}
+
+.whatsapp-btn:hover {
+    background: #1ebe5d;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(37, 211, 102, 0.45);
+}
+
+.whatsapp-btn:active {
+    transform: translateY(0);
+}
+
+/* Closing Signature Custom Rules */
+.contact-signature {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 25px;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-signature p {
+    margin: 0;
+}
+
+.signature-name {
+    font-family: var(--heading-font);
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-top: 5px !important;
+    letter-spacing: 1px;
+}
+
+.heart-emoji {
+    display: block;
+    margin-top: 8px;
+    font-size: 1.2rem;
+}
+
+/* Responsive Viewport Resizes for Smart Phone Screen Form Factors */
+@media (max-width: 600px) {
+    .contact-card {
+        padding: 35px 20px;
+        margin: 40px auto;
+    }
+    .contact-header h2 {
+        font-size: 1.8rem;
+    }
+    .whatsapp-btn {
+        padding: 14px 28px;
+        font-size: 16px;
     }
 }
 
@@ -1440,7 +1625,7 @@ nav a:hover{
         
         <div class="notes-header">
             <h2>Important Notes</h2>
-            <div class="notice-badge">Terms of Booking</div>
+            <div class="notice-badge">Please Read</div>
         </div>
         
         <div class="notes-list">
@@ -1476,7 +1661,7 @@ nav a:hover{
         </div>
 
     </div>
-</section>
+</section><br>
 
 
             <!-- Business Hours Section (Moved cleanly out of contact-grid) -->
@@ -1523,12 +1708,11 @@ nav a:hover{
         
         <div class="payment-header">
             <h2>Payment Details</h2>
-            <div class="payment-badge">Secure Booking</div>
+            <div class="payment-badge">💳 Payment Methods</div>
         </div>
         
         <!-- Core Payment Rules Group -->
         <div class="payment-rules">
-            <p class="rules-title">💳 Payment Methods</p>
             <ul class="rules-list">
                 <li>Cash or instant EFT / PayShap accepted.</li>
                 <li>Payment is required before the session begins.</li>
@@ -1557,30 +1741,39 @@ nav a:hover{
         </div>
 
     </div>
+</section><br>
+
+
+<section id="contact" class="contact-section">
+    <div class="contact-card">
+        
+        <div class="contact-header">
+            <h2>Booking Info</h2>
+            <div class="contact-badge">💬 WhatsApp Only</div>
+        </div>
+        <p class="contact-text">Please message me directly to arrange an appointment. I’ll reply as soon as possible.</p>
+        
+        <ul class="contact-rules">
+            <li>No response to private numbers and international numbers.</li>
+            <li>No video calls.</li>
+        </ul>
+
+        <!-- Interactive WhatsApp Button Container -->
+        <div class="whatsapp-container">
+            <a class="whatsapp-btn" href="https://wa.me/27795567346" target="_blank">
+                <span class="whatsapp-icon">💬</span> Chat on WhatsApp
+            </a>
+        </div>
+
+        <div class="contact-signature">
+            <p>I look forward to hearing from you,</p>
+            <p class="signature-name">Ashleigh</p>
+            <span class="heart-emoji">💚</span>
+        </div>
+
+    </div>
 </section>
 
-
-<section id="contact">
- <h2>Booking Info:</h2>
-<p><strong>💬Whatsapp Only</strong></p>
-<p>Please message me directly to arrange an appointment. I’ll reply as soon as possible.</p>
-<ul><br>
-    <li>- No response to private numbers and international numbers.</li>
-    <li>- No video calls.</li>
-</ul><br>
-
-<p>I look forward to hearing from you,</p><br>
-<p><strong>Ashleigh</strong></p>
-<p>💚</p>
-</section>
-
-<section id="contact" class="whatsapp-section"><br>
-    <a class="whatsapp-btn"
-       href="https://wa.me/27795567346"
-       target="_blank">
-        Chat on WhatsApp
-    </a>
-</section>
 
        <br> <!-- Image Space -->
         <div class="gallery">
