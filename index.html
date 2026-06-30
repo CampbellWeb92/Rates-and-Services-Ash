@@ -337,6 +337,147 @@ nav a:hover{
 }
 
 }
+/* Business Hours Layout */
+/* --- ULTIMATE CENTERING SYSTEM --- */
+.hours-section {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important; /* Forces horizontal centering */
+    align-items: center !important;     /* Forces vertical centering */
+    text-align: center !important;      /* Forces internal text centering */
+    margin: 60px 0 !important;
+    padding: 0 !important;
+    float: none !important;             /* Kills any legacy float positioning */
+}
+
+.hours-card {
+    background: rgba(15, 15, 15, 0.95) !important; /* Deep dark high-contrast mask */
+    backdrop-filter: blur(12px) !important;
+    border: 2px solid gold !important;
+    border-radius: 20px !important;
+    padding: 50px 40px !important;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8) !important;
+    
+    /* RESET MARGINS AND FORCE CENTER CORES */
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: inline-block !important;   /* Locks the box context wrapper */
+    float: none !important;
+    
+    width: 90% !important;
+    max-width: 550px !important;
+    position: relative !important;
+    left: 0 !important;
+    transform: none !important;
+}
+
+
+/* Responsive adjustment to prevent crowding on small phone screens */
+@media (max-width: 600px) {
+    .hours-card {
+        padding: 30px 20px;
+        position: relative; /* Switches back to regular flow on tight screens */
+        top: 0;
+        left: 0;
+        transform: translate(0, 0);
+        margin: 40px auto;
+    }
+}
+
+
+.hours-header h2 {
+    font-size: 36px;
+    font-family: 'Cinzel', serif;
+    color: #FFD700;
+    letter-spacing: 2px;
+}
+
+/* Live Status Styles */
+.status-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.open-status {
+    background: rgba(46, 204, 113, 0.15);
+    color: #2ecc71;
+    border: 1px solid rgba(46, 204, 113, 0.3);
+}
+
+.closed-status {
+    background: rgba(231, 76, 60, 0.15);
+    color: #e74c3c;
+    border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: currentColor;
+    animation: statusPulse 1.8s infinite alternate;
+}
+
+@keyframes statusPulse {
+    0% { opacity: 0.4; }
+    100% { opacity: 1; box-shadow: 0 0 8px currentColor; }
+}
+
+/* Timetable Grid Realignment */
+.hours-timetable {
+    margin: 35px 0;
+    font-family: sans-serif;
+}
+
+.timetable-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #FFFFFF;
+    letter-spacing: 0.5px;
+}
+
+.line-spacer {
+    flex-grow: 1;
+    border-bottom: 1px dotted rgba(255, 215, 0, 0.3);
+    margin: 0 15px;
+}
+
+.day {
+    font-weight: 500;
+}
+
+.time {
+    color: #FFF3B0; /* Champagne text accent */
+    font-weight: 600;
+}
+
+.closed-day {
+    opacity: 0.6;
+}
+
+.closed-day .time {
+    color: #e74c3c;
+}
+
+.hours-note {
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    color: #FFD700;
+    font-style: italic;
+    letter-spacing: 1px;
+}
         /* Section Styling */
         header {
             text-align: center;
@@ -659,17 +800,42 @@ nav a:hover{
         </div>
 </section>
 
-    <section id="business-hours">
-    <h2>Working Hours</h2>
-        <div class="hours">
-            <p><strong>💼By appointment:</strong></p>
-            <ul>
-                <li>Tuesdays, Wednesdays, Thursdays & Fridays: 09:00 to 17:00</li>
-                <li>Saturdays & Public Holidays: 09:00 to 15:00</li>
-                <li>🔒 CLOSED MONDAYS & SUNDAYS</li>
-            </ul><br>
-            <p>- Outcall appointments can be arranged once we’ve built familiarity.</p>
-            <p>- Overnight bookings are available to trusted regular clients only.</p><br>
+            <!-- Business Hours Section (Moved cleanly out of contact-grid) -->
+    <section id="business-hours" class="hours-section">
+    <div class="hours-card">
+            <div class="hours-header">
+                <h2>Business Hours</h2>
+                <div class="gold-divider-center"></div>
+                <!-- Live Status Marker -->
+                <div class="status-indicator open-status" id="live-status">
+                    <span class="status-dot"></span>
+                    <span id="status-text">Open Today</span>
+                </div>
+            </div>
+            <div class="hours-timetable">
+                <div class="timetable-row">
+                    <span class="day">Tuesday - Friday</span>
+                    <span class="line-spacer"></span>
+                    <span class="time">09:00 – 17:00</span>
+                </div>
+                <div class="timetable-row">
+                    <span class="day">Saturday</span>
+                    <span class="line-spacer"></span>
+                    <span class="time">09:00 – 15:00</span>
+                </div>
+                <div class="timetable-row">
+                    <span class="day">Public Holidays</span>
+                    <span class="line-spacer"></span>
+                    <span class="time">09:00 – 15:00</span>
+                </div>
+                <div class="timetable-row closed-day">
+                    <span class="day">Sunday &amp; Monday</span>
+                    <span class="line-spacer"></span>
+                    <span class="time">Closed</span>
+                </div>
+            </div>
+            <p class="hours-note">Strictly by appointment only.</p>
+        </div><br>
         </div>
 </section>
 
