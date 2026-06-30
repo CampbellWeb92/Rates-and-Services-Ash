@@ -616,7 +616,159 @@ nav a:hover{
             border-radius: 8px;
             margin: 20px 0;
         }
-  
+  /* Services Section Core Layout */
+.services-section {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+    scroll-margin-top: 40px;
+}
+
+/* Three-Column Cards Grid System */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+/* Individual Card Styles */
+.service-card {
+    background: rgba(15, 15, 15, 0.95);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 16px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Card Hover Animation */
+.service-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold);
+    box-shadow: 0 20px 40px rgba(214, 175, 55, 0.15);
+}
+
+/* Highlights middle/preferred package layout */
+.service-card.featured {
+    border: 2px solid var(--gold);
+    background: linear-gradient(145deg, rgba(11, 102, 35, 0.1) 0%, rgba(10, 10, 10, 0.95) 100%);
+    box-shadow: 0 15px 40px rgba(214, 175, 55, 0.1);
+}
+
+/* Popular Item Badge */
+.popular-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--black);
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+}
+
+/* Card Titles */
+.service-card h3 {
+    font-family: var(--heading-font);
+    font-size: 1.6rem;
+    color: var(--white);
+    margin: 0 0 5px 0;
+}
+
+.service-card .subtitle {
+    font-size: 0.85rem;
+    color: #888888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    display: block;
+}
+
+/* Pricing Grid Rows */
+.price-list {
+    margin-top: auto;
+}
+
+.price-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.price-item:last-child {
+    border-bottom: none;
+}
+
+.price-item span {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.price-item strong {
+    font-size: 1.25rem;
+    color: var(--gold);
+    font-family: var(--heading-font);
+}
+
+.extra-note {
+    margin: 15px 0 0 0;
+    color: var(--emerald-light);
+    font-style: italic;
+}
+
+/* Bottom Extras Container Layout */
+.addons-container {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.addon-box {
+    background: rgba(11, 102, 35, 0.08);
+    border: 1px dashed rgba(214, 175, 55, 0.4);
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 650px;
+    margin: 0 auto 20px auto;
+}
+
+.addon-box h4 {
+    margin: 0 0 5px 0;
+    color: var(--gold);
+    font-size: 1.1rem;
+}
+
+.addon-box p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.addon-box strong {
+    color: #fff;
+    background: var(--emerald);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.loyalty-badge {
+    font-family: var(--heading-font);
+    font-size: 1.2rem;
+    color: var(--gold);
+    letter-spacing: 1px;
+    font-style: italic;
+}
+
 
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
@@ -739,34 +891,63 @@ nav a:hover{
             <img src="table.png" alt="Luxury Suite" class="gallery-img">
         </div>
 
-        <section id="services">
-        <h2>Massage Rates</h2>
-        <div class="rates">
-            <ul>
-                <li><strong>💆🏻Massage Rates</strong> (with hand/foot release):
-                    <br>• 30 mins – R900
-                    <br>• 1 hour – R1100
-                    <br><small>(R100 extra for covered oral)</small>
-                </li>
-                <br>
-                <li><strong>👩🏻‍❤️‍👨🏼Massage with FH</strong> (includes covered oral):
-                    <br>• 30 mins (FH only) – R1100
-                    <br>• 1 hour (Massage + FH) – R1300
-                </li>
-                <br>
-                <li><strong>🔥FH & GFE only</strong> (no massage):
-                    <br>• 30 mins – R1400
-                    <br>• 1 hour – R1700
-                </li>
-            </ul><br>
-            <p><strong>• 💋GFE (Girlfriend Experience) Add-On:</strong> +R300 <em>(includes kissing and mutual oral – all safe and covered)</em></p><br>
-            <p>🏆 <em>Repeat clients don't pay for GFE</em></p>
+        <section id="services" class="services-section">
+    <h2>Massage Rates</h2>
+    
+    <!-- Cards Container Grid -->
+    <div class="services-grid">
+        
+        <!-- Card 1 -->
+        <div class="service-card">
+            <h3>💆🏻 Massage Rates</h3>
+            <span class="subtitle">With hand/foot release</span>
+            <div class="price-list">
+                <div class="price-item"><span>30 Mins</span> <strong>R900</strong></div>
+                <div class="price-item"><span>1 Hour</span> <strong>R1100</strong></div>
+            </div>
+            <p class="extra-note"><small>+R100 extra for covered oral</small></p>
         </div>
+
+        <!-- Card 2 -->
+        <div class="service-card featured">
+            <div class="popular-badge">Popular</div>
+            <h3>👩🏻‍❤️‍👨🏼 Massage with FH</h3>
+            <span class="subtitle">Includes covered oral</span>
+            <div class="price-list">
+                <div class="price-item"><span>30 Mins (FH only)</span> <strong>R1100</strong></div>
+                <div class="price-item"><span>1 Hour (Massage + FH)</span> <strong>R1300</strong></div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="service-card">
+            <h3>🔥 FH & GFE Only</h3>
+            <span class="subtitle">No massage included</span>
+            <div class="price-list">
+                <div class="price-item"><span>30 Mins</span> <strong>R1400</strong></div>
+                <div class="price-item"><span>1 Hour</span> <strong>R1700</strong></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Add-Ons and VIP Loyalty Section Below the Cards -->
+    <div class="addons-container">
+        <div class="addon-box">
+            <h4>💋 GFE (Girlfriend Experience) Add-On</h4>
+            <p><strong>+R300</strong> <span>• Includes kissing and mutual oral (all safe and covered)</span></p>
+        </div>
+        <div class="loyalty-badge">
+            🏆 Repeat clients don't pay for GFE
+        </div>
+    </div>
+</section>
+
 
         <div class="highlight-box">
             <p><strong>📌Please note:</strong> I kindly request that you maintain good personal hygiene. Some or all services may be declined if hygiene standards are not met. I am a professional provider who prioritises both my safety and that of my clients.</p>
         </div>
-</section>
+</section><br>
 
         <section id="services-not-offered">
   <h2>Services Not Offered</h2>
